@@ -1,0 +1,158 @@
+<HTML> 
+<HEAD> 
+<TITLE> MY DOCUMENT </TITLE> 
+<body  background="pexels-pixabay-414660.jpg">
+<H1><CENTER><FONT COLOR="RED"SIZE="20">REGISTRATION FORM </CENTER></FONT></H1>
+<MARQUEE><H1><font color="RED"> Need room call us on +91 9999648711  +91 8700090727 </font></h1></marquee>
+<form action ="thank you for visiting our website.html" method="post" name="form"><BR><BR>
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="canvas" width="400" height="400"
+style="background-color:#333">
+</canvas>
+
+<script>
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.90
+setInterval(drawClock, 1000);
+
+function drawClock() {
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawTime(ctx, radius);
+}
+
+function drawFace(ctx, radius) {
+  var grad;
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+  grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+  grad.addColorStop(0, '#333');
+  grad.addColorStop(0.5, 'white');
+  grad.addColorStop(1, '#333');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = radius*0.1;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+  ctx.fillStyle = '#333';
+  ctx.fill();
+}
+
+function drawNumbers(ctx, radius) {
+  var ang;
+  var num;
+  ctx.font = radius*0.15 + "px arial";
+  ctx.textBaseline="middle";
+  ctx.textAlign="center";
+  for(num = 1; num < 13; num++){
+    ang = num * Math.PI / 6;
+    ctx.rotate(ang);
+    ctx.translate(0, -radius*0.85);
+    ctx.rotate(-ang);
+    ctx.fillText(num.toString(), 0, 0);
+    ctx.rotate(ang);
+    ctx.translate(0, radius*0.85);
+    ctx.rotate(-ang);
+  }
+}
+
+function drawTime(ctx, radius){
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    //hour
+    hour=hour%12;
+    hour=(hour*Math.PI/6)+
+    (minute*Math.PI/(6*60))+
+    (second*Math.PI/(360*60));
+    drawHand(ctx, hour, radius*0.5, radius*0.07);
+    //minute
+    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    drawHand(ctx, minute, radius*0.8, radius*0.07);
+    // second
+    second=(second*Math.PI/30);
+    drawHand(ctx, second, radius*0.9, radius*0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.moveTo(0,0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+}
+</script>
+
+</body><BR><BR>
+
+
+First name :<input type="Text" name="first name" maxlength="50" size="30"><br><br>
+Last name :<input type="Text" name="last name" maxlength="50" size="30"><br><br>
+
+your gender : <input type="radio" value="male">Male
+<Input type="radio" value="female" CHECKED> female
+
+
+<select name=" religion" size=4 multiple>
+<option value ="Hindu">Hindu</option>
+<option value =" Muslim"> Muslim</option>
+<option value ="Christians">Christians</option>
+<option value ="Sikh">Sikh</option>
+<option value =" Buddhist"> Buddhist</option>
+<br><br>
+
+tell us briefly about yourself:<br><textarea name="vname" rows=5 cols=50></textarea>
+<br><br>
+
+
+<!-- saved from url=(0069)file:///C:/Users/Rishit%20&%20Priyanshi/Downloads/Note%20pad%201.Html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Creating a Table</title>
+<style type="text/css">
+body{background-color:RGB(255,251,214)}
+table,td,th{border:1px solid blue}
+table{width:50%}
+th{text-align:center}
+th{text-align:middle}
+tr:hover{background-color:cyan}
+table{table-layout:fixed;background-color:peachpuff}
+h2{color:red}
+</style></head>
+<body>
+<h2>ROOM TYPES</h2><table>
+
+<tbody><tr><th>S.No</th><th width="17%">ROOM SET</th><th width="28%">PRICE</th></tr>
+<tr><td>1</td><td>2 ROOM SET</td><td>₹6100</td>
+</tr>
+<tr><td>2</td><td>1 ROOM SET  </td><td>₹3200</td>
+</tr>
+<tr><td>3</td><td>SHOP ROOM SET</td><td>₹2000</td></tr>
+</tbody></table>
+
+
+
+</body></html>
+
+
+
+Upload your picture:<input type="file" name="vpic">
+
+
+<input type="submit" value="Submit" style="background-color:lightgreen;border" :2px="" solid="" green"="">
+<input type="reset" value="Reset" style="background-color:orange;border" 2px="" solid="" maroon"="">
+
+</HTML> 
+</HEAD> 
+
